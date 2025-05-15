@@ -5,26 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzaria Delícia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <div class="container">
-        <a class="navbar-brand" href="#">Pizzaria Delícia</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="menu.html">Cardápio</a></li>
-                <li class="nav-item"><a class="nav-link active" href="sobre.html">Sobre Nós</a></li>
-                <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
-            </ul>
+    <nav class="navbar navbar-dark bg-danger navbar-expand-md fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pizzaria Delícia</a>
+            
+            <button class="navbar-toggler" type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#menu" 
+                    aria-controls="menu" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="menu">
+                <!-- Links à ESQUERDA (novos) -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" 
+                           href="#" 
+                           id="navbarDropdown" 
+                           role="button" 
+                           data-bs-toggle="dropdown" 
+                           aria-expanded="false">
+                            Cardápio
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="pizzas.html">Pizzas</a></li>
+                            <li><a class="dropdown-item" href="#">Acompanhamentos</a></li>
+                            <li><a class="dropdown-item" href="#">Molhos</a></li>
+                            <li><a class="dropdown-item" href="#">Bebidas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    
+                </ul>
+                
+    
+                <!-- Links à DIREITA (originais) -->
+                <ul class="navbar-nav">
+                    <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPedidos">
+                        <i class="fas fa-shopping-cart"></i> Meus Pedidos
+                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-sign-in-alt"></i> Entrar
+                        </a>
+                        
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+    
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Nossa História</h2>
@@ -52,11 +98,26 @@
         </div>
     </div>
 </div>
+<div class="accordion mt-5" id="accordionFAQ">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                Temos entregas?
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body">
+                Entregamos em toda a região num raio de 5km. Tempo médio de entrega: 40 minutos.
+            </div>
+        </div>
+    </div>
+    <!-- Adicione mais itens -->
+</div>
 
 <footer class="bg-dark text-white mt-5 py-4">
     <div class="container text-center">
         <div class="mb-3">
-            <img src="images/logo.png" alt="Logo" style="height: 60px;">
+            <img src="images/logo.jpg" alt="Logo" style="height: 60px;">
         </div>
         <p class="mb-2">© 2024 Pizzaria Delícia</p>
         <div class="social-links">
@@ -66,3 +127,32 @@
         </div>
     </div>
 </footer>
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Entrar na Conta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="senha" required>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Entrar</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p class="text-center w-100">Não tem uma conta? <a href="#">Cadastre-se</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>>
+</html>
