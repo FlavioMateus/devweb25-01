@@ -6,9 +6,93 @@
     <title>Pizzaria Delícia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Navbar */
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        .navbar:hover {
+            background-color: #c82333;
+        }
+
+        /* Promoção */
+        .alert-warning {
+            border-radius: 1rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Carrossel */
+        .carousel-item {
+            height: 400px;
+        }
+        .carousel-item img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+
+        /* Cards de Destaque */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #212529;
+            color: #fff;
+        }
+
+        footer .social-links a {
+            font-size: 1.5rem;
+            margin: 0 15px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Modal de Login */
+        .modal-content {
+            border-radius: 0.75rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #ddd;
+        }
+
+        /* Botões */
+        .btn-danger {
+            border-radius: 0.75rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Offcanvas */
+        .offcanvas-body {
+            padding-top: 1rem;
+        }
+
+        .offcanvas-header .btn-close {
+            background-color: #dc3545;
+            border-radius: 50%;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-
 
     <nav class="navbar navbar-dark bg-danger navbar-expand-md fixed-top">
         <div class="container">
@@ -24,7 +108,6 @@
             </button>
     
             <div class="collapse navbar-collapse" id="menu">
-                <!-- Links à ESQUERDA (novos) -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Home</a>
@@ -51,11 +134,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contato.html">Contato</a>
                     </li>
-                    
                 </ul>
-                
     
-                <!-- Links à DIREITA (originais) -->
                 <ul class="navbar-nav">
                     <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasPedidos">
                         <i class="fas fa-shopping-cart"></i> Meus Pedidos
@@ -64,95 +144,127 @@
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
                             <i class="fas fa-sign-in-alt"></i> Entrar
                         </a>
-                        
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Nossa História</h2>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Nossa História</h2>
+        
+        <!-- Seção Forno -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center"> <!-- Reduzi para col-md-8 e mantive em uma única coluna -->
+                <!-- Imagem -->
+                <div class="mb-4">
+                    <img src="images/forno.jpg" 
+                         class="img-fluid rounded" 
+                         alt="Nosso Forno" 
+                         style="height: 400px; object-fit: cover;">
+                </div>
+                
+                <!-- Texto -->
+                <div class="mt-3">
+                    <p class="lead">Há mais de 20 anos trazendo o melhor da pizza tradicional...</p>
+                    <p>Nossa paixão por pizzas artesanais começou em 2003 com um pequeno forno a lenha. Hoje mantemos a mesma tradição com ingredientes selecionados e receitas familiares.</p>
+                </div>
+            </div>
+        </div>
     
-    <!-- Grid com imagens e texto -->
-    <div class="row align-items-center">
-        <div class="col-md-6">
-            <img src="images/forno.jpg" class="img-fluid rounded" alt="Nosso Forno">
-        </div>
-        <div class="col-md-6">
-            <p>Há mais de 20 anos trazendo o melhor da pizza tradicional...</p>
-        </div>
-    </div>
-
-    <!-- Cards da Equipe -->
-    <div class="row mt-5">
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="images/chef.jpg" class="card-img-top" alt="Chef" style="height: 100px;width: 100px;">
-                <div class="card-body">
-                    <h5 class="card-title">João Silva</h5>
-                    <p class="card-text">Chef Principal</p>
+        <!-- Cards da Equipe -->
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <img src="images/chef.jpg" 
+                         class="card-img-top" 
+                         alt="Chef" 
+                         style="height: 150px; width: 150px; object-fit: cover; border-radius: 50%; margin: 0 auto;">
+                    <div class="card-body">
+                        <h5 class="card-title">João Silva</h5>
+                        <p class="card-text">Chef Principal</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="accordion mt-5" id="accordionFAQ">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                Temos entregas?
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
-            <div class="accordion-body">
-                Entregamos em toda a região num raio de 5km. Tempo médio de entrega: 40 minutos.
-            </div>
-        </div>
-    </div>
-    <!-- Adicione mais itens -->
-</div>
+    
+    
 
-<footer class="bg-dark text-white mt-5 py-4">
-    <div class="container text-center">
-        <div class="mb-3">
-            <img src="images/logo.jpg" alt="Logo" style="height: 60px;">
-        </div>
-        <p class="mb-2">© 2024 Pizzaria Delícia</p>
-        <div class="social-links">
-            <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-whatsapp"></i></a>
+    <div class="accordion mt-5" id="accordionFAQ">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    Temos entregas?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFAQ">
+                <div class="accordion-body">
+                    Entregamos em toda a região num raio de 5km. Tempo médio de entrega: 40 minutos.
+                </div>
+            </div>
         </div>
     </div>
-</footer>
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Entrar na Conta</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body">
-          <form>
+
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
             <div class="mb-3">
-              <label for="email" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="email" required>
+                <img src="images/logo.jpg" alt="Logo" style="height: 60px;">
             </div>
-            <div class="mb-3">
-              <label for="senha" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="senha" required>
+            <p class="mb-2">© 2024 Pizzaria Delícia</p>
+            <div class="social-links">
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white mx-2 fs-4"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <button type="submit" class="btn btn-danger w-100">Entrar</button>
-          </form>
         </div>
-        <div class="modal-footer">
-          <p class="text-center w-100">Não tem uma conta? <a href="#">Cadastre-se</a></p>
-        </div>
-      </div>
+    </footer>
+<!-- Offcanvas de Pedidos -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasPedidos">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Meus Pedidos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-</body>>
+    <div class="offcanvas-body">
+        <div class="list-group">
+            <div class="list-group-item d-flex justify-content-between">
+                <span>Pizza Margherita</span>
+                <span>R$ 49,90</span>
+            </div>
+            <!-- Repetir para outros itens -->
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-danger w-100">Finalizar Compra</button>
+        </div>
+    </div>
+</div>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Entrar na Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Entrar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="text-center w-100">Não tem uma conta? <a href="#">Cadastre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
