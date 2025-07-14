@@ -9,7 +9,6 @@ interface Pizza {
     descricao: string;
     disponivel: boolean;
     dataCadastro: Date | null;
-    qtdEstoque: number;
     preco: number;  
 }
 export default Pizza;

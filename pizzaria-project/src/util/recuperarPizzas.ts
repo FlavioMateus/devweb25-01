@@ -14,7 +14,6 @@ const pizzas: Pizza[] = [
     descricao: "Calabresa com cebola e mussarela",
     disponivel: true,
     dataCadastro: new Date(2023, 5, 12),
-    qtdEstoque: 10,
     preco: 39.9,
   },
   {
@@ -26,7 +25,6 @@ const pizzas: Pizza[] = [
     descricao: "Pizza doce com chocolate e morango",
     disponivel: true,
     dataCadastro: new Date(2023, 5, 15),
-    qtdEstoque: 8,
     preco: 42.5,
   },
   // adicione mais pizzas

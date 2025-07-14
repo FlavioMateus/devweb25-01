@@ -1,15 +1,18 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
 
 const Layout = () => {
   return (
     <>
       <NavBar />
-      <div className="container mt-3">
+      <main className="container" style={{ minHeight: 'calc(100vh - 140px)', paddingTop: '70px' }}>
         <Outlet />
-      </div>
+      </main>
+      <Footer />
     </>
   );
-};
+}
 
 export default Layout;

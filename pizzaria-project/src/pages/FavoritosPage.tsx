@@ -111,7 +111,7 @@ const FavoritosPage = () => {
                   <img src={heartFill} alt="Remover dos favoritos" width={20} height={20} />
                 </button>
 
-                <img src={pizza.imagem} className="card-img-top" alt={pizza.nome} />
+                <img src={`/assets/${pizza.imagem}`} className="card-img-top" alt={pizza.nome} />
                 <div className="card-body">
                   <h5 className="card-title">{pizza.nome}</h5>
                   <p className="card-text">R$ {pizza.preco.toFixed(2)}</p>

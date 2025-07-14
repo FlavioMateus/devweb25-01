@@ -145,7 +145,7 @@ const CarrinhoPage = () => {
               <tr key={pizza.id}>
                 <td>
                   <img
-                    src={pizza.imagem}
+                    src={`/assets/${pizza.imagem}`}
                     alt={pizza.nome}
                     style={{ width: "50px" }}
                   />

@@ -30,7 +30,15 @@ const Card = ({
       {usuarioLogado > 0 &&(<button
         onClick={() => toggleFavorito(pizza.id)}
         className="btn position-absolute"
-        style={{ top: 8, right: 8, zIndex: 10, background: "transparent", border: "none" }}
+        style={{
+          top: 8,
+          right: 8,
+          zIndex: 10,
+          backgroundColor: "rgba(255, 255, 255, 0.7)", // fundo branco semi-transparente
+          border: "none",
+          borderRadius: "50%", // botão redondo
+          padding: "4px",
+        }}
       >
         <img
           src={isFavorito(pizza.id) ? heartFill : heart}
@@ -40,7 +48,7 @@ const Card = ({
         />
       </button>)}
       
-      <img src={pizza.imagem} className="card-img-top" alt={pizza.nome} />
+      <img src={`/assets/${pizza.imagem}`} className="card-img-top" alt={pizza.nome} />
       <div className="card-body">
         <h5 className="card-title">{pizza.nome}</h5>
         <p className="card-text">{pizza.descricao}</p>

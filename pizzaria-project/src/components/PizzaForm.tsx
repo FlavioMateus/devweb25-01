@@ -22,7 +22,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 //   categoria: number;
 //   data_cadastro: string;
 //   preco: number;
-//   qtd_estoque: number;
 //   imagem: string;
 //   disponivel: boolean;
 // }
@@ -48,11 +47,6 @@ const schema = z.object({
   preco: z.coerce
     .number({ invalid_type_error: "O preço deve ser informado." })
     .min(0.1, { message: "O preço deve ser maior ou igual a R$ 0.10" }),
-  qtd_estoque: z.coerce
-    .number({
-      invalid_type_error: "A quantidade em estoque deve ser informada.",
-    })
-    .min(0, { message: "A quantidade em estoque deve ser maior do que zero." }),
   imagem: z
     .string()
     .min(1, { message: "A 'imagem' deve ser informada." })
@@ -76,7 +70,6 @@ const PizzaForm = () => {
         dayjs(pizzaSelecionado.dataCadastro).format("DD/MM/YYYY")
       );
       setValue("preco", pizzaSelecionado.preco);
-      setValue("qtd_estoque", pizzaSelecionado.qtdEstoque);
       setValue("imagem", pizzaSelecionado.imagem);
       setValue("disponivel", pizzaSelecionado.disponivel);
     } else {
@@ -107,7 +100,6 @@ const PizzaForm = () => {
       categoria: 0,
       data_cadastro: "",
       preco: undefined,
-      qtd_estoque: undefined,
       imagem: "",
       disponivel: false,
     },
@@ -120,7 +112,6 @@ const PizzaForm = () => {
     categoria,
     data_cadastro,
     preco,
-    qtd_estoque,
     imagem,
     disponivel,
   }: PizzaForm) => {
@@ -144,7 +135,6 @@ const PizzaForm = () => {
           )
         : null,
       preco: preco,
-      qtdEstoque: qtd_estoque,
       imagem: imagem,
       disponivel: disponivel,
     };
@@ -234,8 +224,11 @@ const PizzaForm = () => {
                 }
               >
                 <option value="0">Selecione uma categoria</option>
-                <option value="1">Salgada</option>
-                <option value="2">Doce</option>
+                <option value="1">Tradicional</option>
+                <option value="2">Especiais</option>
+                <option value="3">Doces</option>
+                <option value="4">Vegetarianas</option>
+                <option value="5">Premium</option>
               </select>
               <div className="invalid-feedback">
                 {errors.categoria?.message}
@@ -290,29 +283,7 @@ const PizzaForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-xl-6">
-          <div className="row mb-2">
-            <label htmlFor="qtd_estoque" className="col-xl-3 fw-bold">
-              Estoque
-            </label>
-            <div className="col-xl-9">
-              <input
-                {...register("qtd_estoque")}
-                type="number"
-                min="0"
-                id="qtd_estoque"
-                className={
-                  errors.qtd_estoque
-                    ? "form-control form-control-sm is-invalid"
-                    : "form-control form-control-sm"
-                }
-              />
-              <div className="invalid-feedback">
-                {errors.qtd_estoque?.message}
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       <div className="row mb-1">

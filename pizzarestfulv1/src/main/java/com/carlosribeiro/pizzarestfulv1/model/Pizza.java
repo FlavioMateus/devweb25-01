@@ -36,8 +36,7 @@ public class Pizza {
 
     private boolean disponivel;
 
-    @Min(value=0, message = "A 'Quantidade em estoque' deve ser maior ou igual a 0.")
-    private int qtdEstoque;
+    
 
     @NotNull(message = "O 'Preço' deve ser informado.")
     @DecimalMin(inclusive = true, value="0.1", message = "O 'Preço' deve ser maior ou igual a 0.1.")
@@ -52,14 +51,13 @@ public class Pizza {
     private Categoria categoria;
 
     public Pizza(String imagem, String nome, String slug, String descricao,
-                   boolean disponivel, int qtdEstoque, BigDecimal preco,
+                   boolean disponivel, BigDecimal preco,
                    LocalDate dataCadastro, Categoria categoria) {
         this.imagem = imagem;
         this.nome = nome;
         this.slug = slug;
         this.descricao = descricao;
         this.disponivel = disponivel;
-        this.qtdEstoque = qtdEstoque;
         this.preco = preco;
         this.dataCadastro = dataCadastro;
         this.categoria = categoria;

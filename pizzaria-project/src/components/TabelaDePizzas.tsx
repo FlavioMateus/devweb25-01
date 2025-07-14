@@ -61,7 +61,7 @@ const TabelaDePizzas = () => {
               </td>
               <td width="13%" className="text-center align-middle">
                 <img
-                  src={pizza.imagem}
+                  src={`/assets/${pizza.imagem}`}
                   alt="imagem de pizza"
                   style={{ width: "40px" }}
                 />
@@ -80,9 +80,6 @@ const TabelaDePizzas = () => {
               </td>
               <td width="13%" className="text-center align-middle">
                 {dayjs(pizza.dataCadastro).format("DD/MM/YYYY")}
-              </td>
-              <td width="13%" className="text-center align-middle">
-                {pizza.qtdEstoque}
               </td>
               <td width="10%" className="text-end align-middle pe-3">
                 {pizza.preco.toLocaleString("pt-BR", {
@@ -113,7 +110,7 @@ const TabelaDePizzas = () => {
               {pizzas
                 .reduce(
                   (total, pizza) =>
-                    total + pizza.qtdEstoque * pizza.preco,
+                    total + pizza.preco,
                   0
                 )
                 .toLocaleString("pt-BR", {
